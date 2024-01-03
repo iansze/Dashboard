@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  display: flex;
+}
+
+.menuContainer {
+  width: 200px;
+  border-right: 1px solid #ccc;
+  padding-left: 20px;
+}
+
+.main {
+  background: #333333;
+  color: #e0e0e0;
+}
+
+.contentContainer {
+  width: 100%;
+  overflow: hidden;
+}
+
+.navbar {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar__name {
+  font: bold;
+  cursor: pointer;
+}
+.navbar__icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.navbar__icons-container {
+  display: flex;
+  gap: 1rem;
+  cursor: pointer;
+}
+.navbar__icons-container-notification {
+  position: relative;
+  cursor: pointer;
+}
+.navbar__icons-container-notification span {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 5px;
+  font-size: 12px;
+}
+.navbar__account {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-left: 1rem;
+}
+.navbar__account-container {
+  display: flex;
+  align-items: center;
+}
+.navbar__account p {
+  cursor: pointer;
+}
+.navbar__account img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.navbar__account svg {
+  cursor: pointer;
+}
+
+.footer__container {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.items:not(:first-child) {
+  margin: 2rem 0rem;
+}
+.items__container {
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.items__container-icon {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+.items__container-icon svg {
+  width: 20px;
+  height: 20px;
+}
+.items__container-icon p {
+  margin-left: 1rem;
+}
+.items__container-icon:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+.box {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(180px, auto);
+  padding: 0 1rem;
+}
+.box > [class^=box__] {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.box__1 {
+  grid-column: 1/2;
+  grid-row: 1/4;
+}
+.box__4 {
+  grid-column: 4/5;
+  grid-row: 1/4;
+}
+.box__7 {
+  grid-column: 2/4;
+  grid-row: 3/5;
+}/*# sourceMappingURL=main.css.map */

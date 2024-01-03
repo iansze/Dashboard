@@ -1,0 +1,21 @@
+@use "../../styles/variables" as *;
+
+.container {
+  display: flex;
+}
+
+.menuContainer {
+  width: 200px;
+  border-right: 1px solid #ccc;
+  padding-left: 20px;
+}
+
+.main {
+  background: $dark-bg;
+  color: $light-text;
+}
+
+.contentContainer {
+  width: 100%;
+  overflow: hidden;
+}
