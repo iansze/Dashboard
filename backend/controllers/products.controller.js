@@ -1,11 +1,11 @@
 import { connectToDatabase } from "../index.js";
 
-export const getUsers = async (req, res) => {
+export const getProducts = async (req, res) => {
   let connection;
 
   try {
     connection = await connectToDatabase();
-    const result = await connection.execute("SELECT * FROM USERS");
+    const result = await connection.execute("SELECT * FROM PRODUCTS");
     res.status(200).json(result);
   } catch (error) {
     console.error("Database connection error: ", error);

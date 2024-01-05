@@ -14,8 +14,8 @@ const MenuItems = ({ title, menuItems }: MenuItemsProps) => {
       <span className="items__title">{title}</span>
       <div className="items__container">
         {menuItems.map((item, index) => (
-          <Link to={item.name.toLocaleLowerCase()}>
-            <div key={index} className="items__container-icon">
+          <Link to={item.name.toLocaleLowerCase()} key={`${item.name}_${index}`}>
+            <div className="items__container-icon">
               {item.icon}
               <p className="">{item.name}</p>
             </div>

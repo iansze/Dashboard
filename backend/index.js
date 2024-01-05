@@ -4,12 +4,16 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import OracleDB from "oracledb";
 import usersRouter from "./routes/users.route.js";
+import productsRouter from "./routes/products.route.js";
+import ordersRouter from "./routes/orders.route.js";
+import calendarRouter from "./routes/calendar.route.js";
 
 dotenv.config();
 const app = express();
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors());
+const port = process.env.PORT || 3000;
 
 export async function connectToDatabase() {
   try {
@@ -17,8 +21,8 @@ export async function connectToDatabase() {
       user: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       connectString: process.env.DB_CONNECT_STRING,
-      privilege: OracleDB.SYSDBA,
     });
+
     return connection;
   } catch (err) {
     console.error("Error connecting to database: ", err);
@@ -26,10 +30,13 @@ export async function connectToDatabase() {
   }
 }
 
+app.use("/api/products", productsRouter);
 app.use("/api/users", usersRouter);
+app.use("/api/orders", ordersRouter);
+app.use("/api/calendar", calendarRouter);
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
 
 app.use((req, res, next) => {

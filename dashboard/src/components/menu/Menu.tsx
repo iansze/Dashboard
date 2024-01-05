@@ -3,7 +3,6 @@ import {
   faUser,
   faCartShopping,
   faClipboard,
-  faNewspaper,
   faNoteSticky,
   faTableList,
   faCalendarDays,
@@ -21,7 +20,6 @@ const listsItems = [
   { name: "Users", icon: <FontAwesomeIcon icon={faUser} /> },
   { name: "Products", icon: <FontAwesomeIcon icon={faCartShopping} /> },
   { name: "Orders", icon: <FontAwesomeIcon icon={faClipboard} /> },
-  { name: "Posts", icon: <FontAwesomeIcon icon={faNewspaper} /> },
 ];
 
 const gerenalItems = [

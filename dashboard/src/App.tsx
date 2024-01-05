@@ -5,6 +5,9 @@ import Layout from "./components/layout/Layout";
 import Login from "./pages/login/Login";
 import Users from "./pages/users/Users";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Products from "./pages/products/Products";
+import Orders from "./pages/orders/Orders";
+import Calendar from "./pages/calendar/Calendar";
 
 function App() {
   const queryClient = new QueryClient();
@@ -17,6 +20,9 @@ function App() {
             <Route index element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/users" element={<Users />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/calendar" element={<Calendar />} />
           </Route>
         </Routes>
       </BrowserRouter>
