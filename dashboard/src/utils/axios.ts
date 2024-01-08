@@ -9,4 +9,6 @@ export const requests = {
   fetchProducts: `/products`,
   fetchOrders: `/orders`,
   postCalendarEvent: `/calendar/events`,
+  fetchCalendarEvents: `/calendar/events/lists`,
+  deleteCalendarEvents: `/calendar/events/:eventId`,
 };
