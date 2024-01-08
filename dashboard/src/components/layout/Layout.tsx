@@ -2,16 +2,20 @@ import { Outlet } from "react-router-dom";
 import Menu from "../menu/Menu";
 import Footer from "../footer/Footer";
 import Navbar from "../navbar/Navbar";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const Layout = () => {
+  const isMediumScreen = useMediaQuery("(min-width: 768px)");
   return (
     <div className="main">
       <Navbar />
       <div className="wrapper">
         <div className="container">
-          <div className="menuContainer">
-            <Menu />
-          </div>
+          {isMediumScreen ? (
+            <div className="menuContainer">
+              <Menu />
+            </div>
+          ) : null}
           <div className="contentContainer">
             <Outlet />
           </div>

@@ -3,10 +3,10 @@ import {
   faUser,
   faCartShopping,
   faClipboard,
-  faNoteSticky,
-  faTableList,
   faCalendarDays,
   faChartSimple,
+  faChartLine,
+  faChartPie,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import MenuItems from "./MenuItems";
@@ -22,13 +22,13 @@ const listsItems = [
   { name: "Orders", icon: <FontAwesomeIcon icon={faClipboard} /> },
 ];
 
-const gerenalItems = [
-  { name: "Notes", icon: <FontAwesomeIcon icon={faNoteSticky} /> },
-  { name: "Forms", icon: <FontAwesomeIcon icon={faTableList} /> },
-  { name: "Calendar", icon: <FontAwesomeIcon icon={faCalendarDays} /> },
-];
+const gerenalItems = [{ name: "Calendar", icon: <FontAwesomeIcon icon={faCalendarDays} /> }];
 
-const analyticsItems = [{ name: "Charts", icon: <FontAwesomeIcon icon={faChartSimple} /> }];
+const analyticsItems = [
+  { name: "BarChart", icon: <FontAwesomeIcon icon={faChartSimple} /> },
+  { name: "LineChart", icon: <FontAwesomeIcon icon={faChartLine} /> },
+  { name: "PieChart", icon: <FontAwesomeIcon icon={faChartPie} /> },
+];
 
 const Menu = () => {
   return (

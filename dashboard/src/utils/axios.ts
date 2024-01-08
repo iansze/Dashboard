@@ -9,6 +9,7 @@ export const requests = {
   fetchProducts: `/products`,
   fetchOrders: `/orders`,
   postCalendarEvent: `/calendar/events`,
-  fetchCalendarEvents: `/calendar/events/lists`,
+  fetchCalendarEvents: `/calendar/events`,
   deleteCalendarEvents: `/calendar/events/:eventId`,
+  deleteCalendarAllEvents: `/calendar/events`,
 };

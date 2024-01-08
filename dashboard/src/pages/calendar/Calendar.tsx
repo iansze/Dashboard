@@ -5,9 +5,10 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import listPlugin from "@fullcalendar/list";
-import { Box, List, ListItem, ListItemText, Typography } from "@mui/material";
+import { Box, Button, List, ListItem, ListItemText, Typography } from "@mui/material";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { instance, requests } from "../../utils/axios";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 type CalendarEvent = {
   id: string;
@@ -28,6 +29,7 @@ type CalendarEventFromDB = {
 const Calendar = () => {
   const [savedEvents, setSavedEvents] = useState<CalendarEvent[]>([]);
   const [currentEvents, setCurrentEvents] = useState<CalendarEvent[]>([]);
+  const isMediumScreen = useMediaQuery("(min-width: 768px)");
 
   const createEventMutation = useMutation({
     mutationFn: (newEvent: CalendarEvent) => instance.post(requests.postCalendarEvent, newEvent),
@@ -39,6 +41,13 @@ const Calendar = () => {
   const deleteEventMutation = useMutation({
     mutationFn: (deleteEvent: CalendarEvent) =>
       instance.delete(requests.deleteCalendarEvents, { data: deleteEvent }),
+    onError: (error: Error) => {
+      console.error("Delete event error:", error.message);
+    },
+  });
+
+  const deleteAllEventMutation = useMutation({
+    mutationFn: () => instance.delete(requests.deleteCalendarAllEvents),
     onError: (error: Error) => {
       console.error("Delete event error:", error.message);
     },
@@ -95,15 +104,32 @@ const Calendar = () => {
     }
   };
 
+  const handleDeleteAllEventClick = () => {
+    if (window.confirm(`Are you sure you want to delete all events?`)) {
+      deleteAllEventMutation.mutate();
+      setSavedEvents([]);
+      setCurrentEvents([]);
+    }
+  };
+
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error: {error.message}</div>;
 
   return (
     <Box m="20px">
-      <Box display="flex" justifyContent="space-between">
+      <Box
+        display="flex"
+        flexDirection={isMediumScreen ? "row" : "column"}
+        justifyContent="space-between"
+      >
         {/* CALENDAR SIDEBAR */}
         <Box flex="1 1 20%" p="15px" borderRadius="4px">
-          <Typography variant="h5">Events</Typography>
+          <Typography variant="h5" marginBottom={1}>
+            Events
+          </Typography>
+          <Button variant="outlined" color="error" onClick={handleDeleteAllEventClick}>
+            Delete All Events
+          </Button>
           <List sx={{ overflowY: "auto", maxHeight: "80vh" }}>
             {currentEvents.map((event) => (
               <ListItem

@@ -8,6 +8,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Products from "./pages/products/Products";
 import Orders from "./pages/orders/Orders";
 import Calendar from "./pages/calendar/Calendar";
+import BarChart from "./pages/barChart/BarChart";
+import LineChart from "./pages/lineChart/LineChart";
+import PieChart from "./pages/pieChart/PieChart";
 
 function App() {
   const queryClient = new QueryClient();
@@ -23,6 +26,9 @@ function App() {
             <Route path="/products" element={<Products />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/calendar" element={<Calendar />} />
+            <Route path="/barChart" element={<BarChart />} />
+            <Route path="/lineChart" element={<LineChart />} />
+            <Route path="/pieChart" element={<PieChart />} />
           </Route>
         </Routes>
       </BrowserRouter>
