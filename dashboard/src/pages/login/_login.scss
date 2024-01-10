@@ -9,4 +9,21 @@
     font-weight: 600;
     margin: 3rem;
   }
+  &__link {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 3rem;
+    color: white;
+    text-decoration: none;
+    &-text {
+      margin-left: 0.5rem;
+      color: red;
+      text-decoration: underline;
+      &:hover {
+        font-size: 1.3rem;
+        color: white;
+        transition: all 0.3s ease;
+      }
+    }
+  }
 }

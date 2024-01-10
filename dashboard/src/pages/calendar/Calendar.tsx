@@ -18,6 +18,7 @@ const Calendar = () => {
   const [currentEvents, setCurrentEvents] = useState<CalendarEvent[]>([]);
   const isMediumScreen = useMediaQuery("(min-width: 768px)");
   const currentMember = useSelector((state: RootState) => state.member.currentMember);
+  const memberId = currentMember?.member_id;
 
   const createEventMutation = useMutation({
     mutationFn: (newEvent: CalendarEvent) => instance.post(requests.postCalendarEvent, newEvent),
@@ -28,22 +29,24 @@ const Calendar = () => {
 
   const deleteEventMutation = useMutation({
     mutationFn: (deleteEvent: CalendarEvent) =>
-      instance.delete(requests.deleteCalendarEvents, { data: deleteEvent }),
+      instance.delete(`${requests.deleteCalendarEvents}?member_id=${memberId}`, {
+        data: deleteEvent,
+      }),
     onError: (error: Error) => {
       console.error("Delete event error:", error.message);
     },
   });
 
   const deleteAllEventMutation = useMutation({
-    mutationFn: () => instance.delete(requests.deleteCalendarAllEvents),
+    mutationFn: () => instance.delete(`${requests.deleteCalendarAllEvents}?member_id=${memberId}`),
     onError: (error: Error) => {
       console.error("Delete event error:", error.message);
     },
   });
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["fetchCalendarEvents"],
-    queryFn: () => instance.get(requests.fetchCalendarEvents),
+    queryKey: ["fetchCalendarEvents", memberId],
+    queryFn: () => instance.get(`${requests.fetchCalendarEvents}?member_id=${memberId}`),
   });
 
   useEffect(() => {
@@ -88,6 +91,7 @@ const Calendar = () => {
         start: selected.event.start!,
         end: selected.event.end!,
         allDay: selected.event.allDay,
+        member_id: currentMember?.member_id,
       };
       deleteEventMutation.mutate(eventToDelete);
       selected.event.remove();

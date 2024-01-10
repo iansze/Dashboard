@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import MenuItems from "./MenuItems";
 
 const mainItems = [
-  { name: "Homepage", icon: <FontAwesomeIcon icon={faHouse} /> },
+  { name: "Home", icon: <FontAwesomeIcon icon={faHouse} /> },
   { name: "Profile", icon: <FontAwesomeIcon icon={faUser} /> },
 ];
 

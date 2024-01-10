@@ -6,7 +6,7 @@ import { convertDbRowsToObjects } from "../utils/convertDbRowsToObjects.js";
 export const signup = async (req, res, next) => {
   const { username, email, password } = req.body;
   let connection;
-  console.log(req.body);
+
   try {
     connection = await connectToDatabase();
     const isExistingEmail = await connection.execute(`SELECT * FROM MEMBERS WHERE EMAIL = :email`, {

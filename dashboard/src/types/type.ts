@@ -28,6 +28,7 @@ export type CalendarEvent = {
   start: Date;
   end: Date;
   allDay: boolean;
+  member_id?: string;
 };
 
 export type CalendarEventFromDB = {
