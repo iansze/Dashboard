@@ -12,4 +12,7 @@ export const requests = {
   fetchCalendarEvents: `/calendar/events`,
   deleteCalendarEvents: `/calendar/events/:eventId`,
   deleteCalendarAllEvents: `/calendar/events`,
+  signup: `/auth/sign-up`,
+  login: `/auth/login`,
+  logout: `/auth/logout`,
 };

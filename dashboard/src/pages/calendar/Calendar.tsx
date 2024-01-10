@@ -9,27 +9,15 @@ import { Box, Button, List, ListItem, ListItemText, Typography } from "@mui/mate
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { instance, requests } from "../../utils/axios";
 import useMediaQuery from "../../hooks/useMediaQuery";
-
-type CalendarEvent = {
-  id: string;
-  title: string;
-  start: Date;
-  end: Date;
-  allDay: boolean;
-};
-
-type CalendarEventFromDB = {
-  id: string;
-  title: string;
-  start_date: string;
-  end_date: string;
-  allday: string;
-};
+import { CalendarEvent, CalendarEventFromDB } from "../../types/type";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 
 const Calendar = () => {
   const [savedEvents, setSavedEvents] = useState<CalendarEvent[]>([]);
   const [currentEvents, setCurrentEvents] = useState<CalendarEvent[]>([]);
   const isMediumScreen = useMediaQuery("(min-width: 768px)");
+  const currentMember = useSelector((state: RootState) => state.member.currentMember);
 
   const createEventMutation = useMutation({
     mutationFn: (newEvent: CalendarEvent) => instance.post(requests.postCalendarEvent, newEvent),
@@ -73,6 +61,7 @@ const Calendar = () => {
   }, [data]);
 
   const handleAddEventClick = (selected: DateSelectArg) => {
+    if (!currentMember) return alert("Please login to add an event");
     const title = prompt("Please enter a new title for your event");
     const calendarApi = selected.view.calendar;
     calendarApi.unselect();
@@ -84,6 +73,7 @@ const Calendar = () => {
         start: selected.start,
         end: selected.end,
         allDay: selected.allDay,
+        member_id: currentMember.member_id,
       };
       createEventMutation.mutate(newEvent);
       calendarApi.addEvent(newEvent);

@@ -3,16 +3,22 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faTableCells } from "@fortawesome/free-solid-svg-icons";
 import { faExpand } from "@fortawesome/free-solid-svg-icons";
 import { faBell } from "@fortawesome/free-solid-svg-icons";
-import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import { Button, Drawer } from "@mui/material";
 import { useState } from "react";
 import Menu from "../menu/Menu";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../redux/store";
+import { instance, requests } from "../../utils/axios";
+import { setCurrentMember } from "../../redux/feature/memberSlice";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
   const isMediumScreen = useMediaQuery("(min-width: 768px)");
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
+  const currentMember = useSelector((state: RootState) => state.member.currentMember);
 
   const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
     if (
@@ -24,6 +30,12 @@ const Navbar = () => {
     }
 
     setIsBurgerMenuOpen(open);
+  };
+
+  const signOutHandler = () => {
+    instance.get(requests.logout).then(() => {
+      dispatch(setCurrentMember(null));
+    });
   };
 
   return (
@@ -57,10 +69,11 @@ const Navbar = () => {
 
         <div className="navbar__account">
           <div className="navbar__account-container">
-            <img src="/src/assets/icon.ico" alt="icon" className="" />
-            <p className="account">Ian</p>
+            <p className="navbar__account-name">{currentMember ? currentMember?.username : ""}</p>
           </div>
-          <FontAwesomeIcon icon={faGear} size="lg" />
+          <button className="navbar__account-button" onClick={signOutHandler}>
+            {currentMember ? "Logout" : <Link to="/login">Login</Link>}
+          </button>
         </div>
       </div>
     </div>

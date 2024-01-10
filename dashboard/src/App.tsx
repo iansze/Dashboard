@@ -11,6 +11,7 @@ import Calendar from "./pages/calendar/Calendar";
 import BarChart from "./pages/barChart/BarChart";
 import LineChart from "./pages/lineChart/LineChart";
 import PieChart from "./pages/pieChart/PieChart";
+import SignUp from "./pages/signUp/SignUp";
 
 function App() {
   const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/sign-up" element={<SignUp />} />
             <Route path="/users" element={<Users />} />
             <Route path="/products" element={<Products />} />
             <Route path="/orders" element={<Orders />} />

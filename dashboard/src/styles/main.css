@@ -81,9 +81,29 @@ a {
   gap: 1rem;
   margin-left: 1rem;
 }
+.navbar__account-name {
+  font-size: large;
+}
 .navbar__account-container {
   display: flex;
   align-items: center;
+}
+.navbar__account-button {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 3px;
+  padding: 6px 12px;
+  border: 0;
+  color: #fff;
+  background: rgb(142, 123, 133);
+  line-height: 1.15;
+  font-size: 16px;
+}
+.navbar__account-button:hover {
+  transition: all 0.1s ease;
+  box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
 }
 .navbar__account p {
   cursor: pointer;
@@ -167,4 +187,45 @@ a {
 .box__7 {
   grid-column: 2/4;
   grid-row: 3/5;
+}
+
+.authForm {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.authForm__username, .authForm__email, .authForm__password {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.authForm__submit {
+  cursor: pointer;
+  font-size: large;
+  font-weight: 700;
+  padding: 0.5rem 2rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.authForm__submit:hover {
+  background: black;
+  color: white;
+}
+
+.authContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+}
+.authContainer__title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 3rem;
 }/*# sourceMappingURL=main.css.map */

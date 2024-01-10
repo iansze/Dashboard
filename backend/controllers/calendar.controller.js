@@ -1,4 +1,5 @@
 import { connectToDatabase } from "../index.js";
+import { convertDbRowsToObjects } from "../utils/convertDbRowsToObjects.js";
 
 export const createEvents = async (req, res) => {
   let connection;
@@ -94,15 +95,4 @@ export const deleteAllEvent = async (req, res) => {
       }
     }
   }
-};
-
-const convertDbRowsToObjects = (metaData, rows) => {
-  return rows.map((row) => {
-    const rowObject = {};
-    metaData.forEach((column, index) => {
-      const columnName = column.name.toLowerCase();
-      rowObject[columnName] = row[index];
-    });
-    return rowObject;
-  });
 };
