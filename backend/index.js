@@ -31,12 +31,6 @@ export async function connectToDatabase() {
   }
 }
 
-app.use("/api/products", productsRouter);
-app.use("/api/users", usersRouter);
-app.use("/api/orders", ordersRouter);
-app.use("/api/calendar", calendarRouter);
-app.use("/api/auth", authRouter);
-
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
@@ -51,3 +45,9 @@ app.use((req, res, next) => {
 
   next();
 });
+
+app.use("/api/products", productsRouter);
+app.use("/api/users", usersRouter);
+app.use("/api/orders", ordersRouter);
+app.use("/api/calendar", calendarRouter);
+app.use("/api/auth", authRouter);

@@ -13,6 +13,6 @@ export const requests = {
   deleteCalendarEvents: `/calendar/events/:eventId`,
   deleteCalendarAllEvents: `/calendar/events`,
   signup: `/auth/sign-up`,
-  login: `https://ga6d26788029fe2-aahlb0oss86irbos.adb.ca-toronto-1.oraclecloudapps.com/ords/admin/api/auth/login`,
+  login: `/auth/login`,
   logout: `/auth/logout`,
 };
