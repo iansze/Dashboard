@@ -32,10 +32,6 @@ export async function connectToDatabase() {
   }
 }
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
-
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -56,4 +52,8 @@ app.use("/api/auth", authRouter);
 app.use(express.static(path.join(path.resolve(), "../dashboard/dist")));
 app.get("*", (req, res) => {
   res.sendFile(path.join(path.resolve(), "../dashboard/dist", "index.html"));
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
