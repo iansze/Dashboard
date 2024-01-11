@@ -51,3 +51,8 @@ app.use("/api/users", usersRouter);
 app.use("/api/orders", ordersRouter);
 app.use("/api/calendar", calendarRouter);
 app.use("/api/auth", authRouter);
+
+app.use(express.static(path.join(path.resolve(), "../dashboard/dist")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(path.resolve(), "../dashboard/dist", "index.html"));
+});

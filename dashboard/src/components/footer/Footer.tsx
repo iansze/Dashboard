@@ -1,8 +1,4 @@
-import React from "react";
-
-type Props = {};
-
-const Footer = (props: Props) => {
+const Footer = () => {
   return (
     <footer>
       <div className="footer__container">

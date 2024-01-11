@@ -1,8 +1,4 @@
-import React from "react";
-
-type Props = {};
-
-const Home = (props: Props) => {
+const Home = () => {
   return (
     <main className="box">
       <div className="box__1">box1</div>
