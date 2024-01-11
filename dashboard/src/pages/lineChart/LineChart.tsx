@@ -1,4 +1,4 @@
-import { ResponsiveLine } from "@nivo/Line";
+import { ResponsiveLine } from "@nivo/line";
 import data from "../../chartsData/LineChart.json";
 
 const LineChart = () => {
