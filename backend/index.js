@@ -49,9 +49,9 @@ app.use("/api/orders", ordersRouter);
 app.use("/api/calendar", calendarRouter);
 app.use("/api/auth", authRouter);
 
-app.use(express.static(path.join(path.resolve(), "../dashboard/dist")));
+app.use(express.static(path.join(path.resolve(), "./frontend/dist")));
 app.get("*", (req, res) => {
-  res.sendFile(path.join(path.resolve(), "../dashboard/dist", "index.html"));
+  res.sendFile(path.join(path.resolve(), "./frontend/dist", "index.html"));
 });
 
 app.listen(port, () => {
