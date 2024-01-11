@@ -1,0 +1,95 @@
+.navbar {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__name {
+    font: bold;
+    cursor: pointer;
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    &-container {
+      display: flex;
+      gap: 1rem;
+      cursor: pointer;
+
+      &-notification {
+        position: relative;
+        cursor: pointer;
+        span {
+          position: absolute;
+          top: -5px;
+          right: -5px;
+          background: red;
+          color: white;
+          border-radius: 50%;
+          padding: 2px 5px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  &__account {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-left: 1rem;
+
+    &-name {
+      font-size: large;
+    }
+    &-container {
+      display: flex;
+      align-items: center;
+    }
+    &-button {
+      display: inline-block;
+      outline: none;
+      cursor: pointer;
+      font-weight: 600;
+      border-radius: 3px;
+      padding: 6px 12px;
+      border: 0;
+      color: #fff;
+      background: rgb(142, 123, 133);
+      line-height: 1.15;
+      font-size: 16px;
+      &:hover {
+        transition: all 0.1s ease;
+        box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
+      }
+    }
+
+    p {
+      cursor: pointer;
+    }
+
+    img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    svg {
+      cursor: pointer;
+    }
+  }
+}
+
+.burgerContainer {
+  background: black;
+  color: white;
+  padding: 2rem;
+  height: 100%;
+}
