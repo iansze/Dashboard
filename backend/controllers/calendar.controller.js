@@ -1,4 +1,4 @@
-import { connectToDatabase } from "../index.js";
+import { connectToDatabase } from "../server.js";
 import { convertDbRowsToObjects } from "../utils/convertDbRowsToObjects.js";
 
 export const createEvents = async (req, res) => {

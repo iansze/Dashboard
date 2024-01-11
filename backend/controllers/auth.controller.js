@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { connectToDatabase } from "../index.js";
+import { connectToDatabase } from "../server.js";
 import { convertDbRowsToObjects } from "../utils/convertDbRowsToObjects.js";
 
 export const signup = async (req, res, next) => {

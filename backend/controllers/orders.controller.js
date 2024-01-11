@@ -1,4 +1,4 @@
-import { connectToDatabase } from "../index.js";
+import { connectToDatabase } from "../server.js";
 
 export const getOrders = async (req, res) => {
   let connection;
