@@ -8,6 +8,7 @@ import productsRouter from "./routes/products.route.js";
 import ordersRouter from "./routes/orders.route.js";
 import calendarRouter from "./routes/calendar.route.js";
 import authRouter from "./routes/auth.route.js";
+import path from "path";
 
 dotenv.config();
 const app = express();
