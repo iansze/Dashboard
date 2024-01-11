@@ -1,0 +1,31 @@
+@use "../../styles/variables" as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.menuContainer {
+  width: 200px;
+  border-right: 1px solid #ccc;
+  padding-left: 20px;
+}
+
+.main {
+  background: $dark-bg;
+  color: $light-text;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.contentContainer {
+  width: 100%;
+  overflow: hidden;
+}
