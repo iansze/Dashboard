@@ -32,6 +32,13 @@ const DataTable = ({ query, tag }: DataTableProps) => {
   const rows = data?.data.rows.map((row: RowData) => {
     return row.reduce((obj: ConvertedRowData, val, index) => {
       const key = columnNames[index];
+      if (key === "ORDER_DATE") {
+        val = val.split("T")[0];
+      }
+      if (key === "TOTAL_PRICE") {
+        val = `$${parseFloat(val).toFixed(2)}`;
+      }
+
       obj[key] = val;
       return obj;
     }, {} as ConvertedRowData);
