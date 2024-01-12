@@ -18,12 +18,12 @@ app.use(cors());
 const port = process.env.PORT || 3000;
 
 export async function connectToDatabase() {
-  if (process.platform === "win32") {
-    OracleDB.initOracleClient({
-      libDir:
-        "C:\\Users\\iansz\\Downloads\\instantclient-basic-windows.x64-21.12.0.0.0dbru\\instantclient_21_12",
-    });
-  }
+  // if (process.platform === "win32") {
+  //   OracleDB.initOracleClient({
+  //     libDir:
+  //       "C:\\Users\\iansz\\Downloads\\instantclient-basic-windows.x64-21.12.0.0.0dbru\\instantclient_21_12",
+  //   });
+  // }
   try {
     const connection = await OracleDB.getConnection({
       user: process.env.DB_USER,
