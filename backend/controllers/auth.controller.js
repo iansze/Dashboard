@@ -20,7 +20,7 @@ export const signup = async (req, res, next) => {
     const hashedPassword = await bcrypt.hash(password, 12);
 
     const result = await connection.execute(
-      `INSERT INTO MEMBERS (USERNAME, EMAIL, PASSWORD) VALUES (:username, :email, :hashedPassword)`,
+      `INSERT INTO MEMBERS (MEMBERNAME, EMAIL, PASSWORD) VALUES (:username, :email, :hashedPassword)`,
       [username, email, hashedPassword]
     );
 
@@ -47,7 +47,7 @@ export const login = async (req, res, next) => {
   try {
     connection = await connectToDatabase();
     const existingUser = await connection.execute(
-      `SELECT * FROM MEMBERS WHERE USERNAME = :username`,
+      `SELECT * FROM MEMBERS WHERE MEMBERNAME = :username`,
       { username }
     );
 

@@ -24,6 +24,7 @@ export async function connectToDatabase() {
   //       "C:\\Users\\iansz\\Downloads\\instantclient-basic-windows.x64-21.12.0.0.0dbru\\instantclient_21_12",
   //   });
   // }
+  console.log(process.env.DB_USER);
   try {
     const connection = await OracleDB.getConnection({
       user: process.env.DB_USER,
