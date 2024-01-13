@@ -13,7 +13,7 @@ export type SignInResponseData = {
 
 export type Member = {
   member_id?: string;
-  username: string;
+  memberName: string;
   password: string;
   email: string;
 };

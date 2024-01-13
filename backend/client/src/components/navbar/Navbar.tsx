@@ -69,7 +69,7 @@ const Navbar = () => {
 
         <div className="navbar__account">
           <div className="navbar__account-container">
-            <p className="navbar__account-name">{currentMember ? currentMember?.username : ""}</p>
+            <p className="navbar__account-name">{currentMember ? currentMember?.memberName : ""}</p>
           </div>
           <button className="navbar__account-button" onClick={signOutHandler}>
             {currentMember ? "Logout" : <Link to="/login">Login</Link>}
