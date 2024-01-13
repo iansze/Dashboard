@@ -51,6 +51,7 @@ const Calendar = () => {
 
   useEffect(() => {
     if (data) {
+      console.log("data", data);
       const eventObj = data.data.map((event: CalendarEventFromDB) => ({
         id: event.id,
         title: event.title,
