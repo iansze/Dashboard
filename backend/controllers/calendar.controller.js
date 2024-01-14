@@ -85,10 +85,11 @@ export const deleteEvent = async (req, res) => {
 
 export const deleteAllEvent = async (req, res) => {
   let connection;
+
   try {
     connection = await connectToDatabase();
     const result = await connection.execute(`DELETE FROM DATE_EVENTS WHERE MEMBER_ID = :memberId`, [
-      req.body.member_id,
+      req.query.member_id,
     ]);
     await connection.commit();
     res.status(200).json(result);

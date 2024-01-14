@@ -1,10 +1,9 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setCurrentMember } from "../../redux/feature/memberSlice";
 import { instance, requests } from "../../utils/axios";
-import { RootState } from "../../redux/store";
 import { Mode, FormValues, SignInResponseData } from "../../types/type";
 
 const AuthForm = ({ mode }: Mode) => {
@@ -15,9 +14,7 @@ const AuthForm = ({ mode }: Mode) => {
   } = useForm<FormValues>();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const currentMember = useSelector((state: RootState) => state.member.currentMember);
 
-  console.log("currentMember:", currentMember);
   const mutationOptions = {
     signUp: {
       mutationFn: (data: FormValues) =>

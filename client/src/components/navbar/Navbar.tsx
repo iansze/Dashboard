@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const isMediumScreen = useMediaQuery("(min-width: 768px)");
+  const isMediumScreen = useMediaQuery("(min-width: 1024px)");
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
   const currentMember = useSelector((state: RootState) => state.member.currentMember);
 
@@ -69,7 +69,7 @@ const Navbar = () => {
 
         <div className="navbar__account">
           <div className="navbar__account-container">
-            <p className="navbar__account-name">{currentMember ? currentMember?.memberName : ""}</p>
+            <p className="navbar__account-name">{currentMember ? currentMember.membername : ""}</p>
           </div>
           <button className="navbar__account-button" onClick={signOutHandler}>
             {currentMember ? "Logout" : <Link to="/login">Login</Link>}

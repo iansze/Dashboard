@@ -5,7 +5,7 @@ import Navbar from "../navbar/Navbar";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 const Layout = () => {
-  const isMediumScreen = useMediaQuery("(min-width: 768px)");
+  const isMediumScreen = useMediaQuery("(min-width: 1024px)");
   return (
     <div className="main">
       <Navbar />

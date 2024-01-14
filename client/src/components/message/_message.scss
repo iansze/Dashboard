@@ -1,0 +1,19 @@
+.message {
+  padding: 3px;
+
+  &__container {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+
+      h1 {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

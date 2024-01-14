@@ -8,13 +8,14 @@
 
 .container {
   display: flex;
-  height: 100%;
+  flex-grow: 1;
 }
 
 .menuContainer {
   width: 200px;
   border-right: 1px solid #ccc;
   padding-left: 20px;
+  padding-top: 1rem;
 }
 
 .main {
@@ -28,4 +29,5 @@
 .contentContainer {
   width: 100%;
   overflow: hidden;
+  padding-top: 1rem;
 }
