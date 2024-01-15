@@ -2,7 +2,7 @@ import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 
 type LoadingProps = {
-  messagae: string;
+  messagae?: string;
 };
 
 const Loading = ({ messagae }: LoadingProps) => {
