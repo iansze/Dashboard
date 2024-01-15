@@ -1,21 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { instance } from "../../utils/axios";
 import { DataGrid } from "@mui/x-data-grid";
-
-type ColumnData = {
-  name: string;
-};
-
-type RowData = string[];
-
-type ConvertedRowData = {
-  [key: string]: string | number;
-};
-
-type DataTableProps = {
-  query: string;
-  tag: string;
-};
+import { ColumnData, ConvertedRowData, DataTableProps, RowData } from "../../types/type";
+import Loading from "../loading/Loading";
 
 const DataTable = ({ query, tag }: DataTableProps) => {
   const { data, isLoading, isError, error } = useQuery({
@@ -44,7 +31,7 @@ const DataTable = ({ query, tag }: DataTableProps) => {
     }, {} as ConvertedRowData);
   });
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Loading />;
   if (isError) return <div>Error: {error.message}</div>;
 
   return (

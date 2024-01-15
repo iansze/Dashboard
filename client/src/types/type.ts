@@ -38,3 +38,18 @@ export type CalendarEventFromDB = {
   end_date: string;
   allday: string;
 };
+
+export type ColumnData = {
+  name: string;
+};
+
+export type RowData = string[];
+
+export type ConvertedRowData = {
+  [key: string]: string | number;
+};
+
+export type DataTableProps = {
+  query: string;
+  tag: string;
+};

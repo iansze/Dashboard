@@ -12,6 +12,7 @@ import LineChart from "../../components/lineChart/LineChart";
 import Message from "../../components/message/Message";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import Loading from "../../components/loading/Loading";
 
 const Home = () => {
   const currentMember = useSelector((state: RootState) => state.member.currentMember);
@@ -34,6 +35,9 @@ const Home = () => {
       setCurrentEvents(eventObj);
     }
   }, [data]);
+
+  if (isLoading) return <Loading />;
+  if (isError) return <div>Error: {error.message}</div>;
 
   return (
     <main className="box">

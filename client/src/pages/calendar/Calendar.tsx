@@ -12,6 +12,7 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 import { CalendarEvent, CalendarEventFromDB } from "../../types/type";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
+import Loading from "../../components/loading/Loading";
 
 const Calendar = () => {
   const [savedEvents, setSavedEvents] = useState<CalendarEvent[]>([]);
@@ -106,7 +107,7 @@ const Calendar = () => {
     }
   };
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Loading />;
   if (isError) return <div>Error: {error.message}</div>;
 
   return (

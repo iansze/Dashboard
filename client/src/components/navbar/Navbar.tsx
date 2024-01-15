@@ -12,9 +12,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../redux/store";
 import { instance, requests } from "../../utils/axios";
 import { setCurrentMember } from "../../redux/feature/memberSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const isMediumScreen = useMediaQuery("(min-width: 1024px)");
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
@@ -36,6 +37,7 @@ const Navbar = () => {
     instance.get(requests.logout).then(() => {
       dispatch(setCurrentMember(null));
     });
+    navigate("/");
   };
 
   return (
@@ -53,7 +55,9 @@ const Navbar = () => {
             </Drawer>
           </>
         ) : (
-          <h1>DashBoard</h1>
+          <Link to="/">
+            <h1>DashBoard</h1>
+          </Link>
         )}
       </div>
       <div className="navbar__icons">
@@ -64,16 +68,23 @@ const Navbar = () => {
         </div>
         <div className="navbar__icons-container-notification">
           <FontAwesomeIcon icon={faBell} size="lg" />
-          <span>1</span>
+          {currentMember ? <span>1</span> : ""}
         </div>
 
         <div className="navbar__account">
           <div className="navbar__account-container">
             <p className="navbar__account-name">{currentMember ? currentMember.membername : ""}</p>
           </div>
-          <button className="navbar__account-button" onClick={signOutHandler}>
-            {currentMember ? "Logout" : <Link to="/login">Login</Link>}
-          </button>
+
+          {currentMember ? (
+            <button className="navbar__account-button" onClick={signOutHandler}>
+              Sign Out{" "}
+            </button>
+          ) : (
+            <button className="navbar__account-button" onClick={() => navigate("/login")}>
+              Login{" "}
+            </button>
+          )}
         </div>
       </div>
     </div>
