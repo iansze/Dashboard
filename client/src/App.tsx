@@ -12,9 +12,50 @@ import BarChartPage from "./pages/barChart/BarChartPage";
 import LineChartPage from "./pages/lineChart/LineChartPage";
 import PieChartPage from "./pages/pieChart/PieChartPage";
 import SignUp from "./pages/signUp/SignUp";
+import { useEffect, useState } from "react";
+import Loading from "./components/loading/Loading";
 
 function App() {
+  const [isLoading, setLoading] = useState(true);
+  const [isSlow, setSlow] = useState(false);
   const queryClient = new QueryClient();
+
+  useEffect(() => {
+    const alreadyLoaded = localStorage.getItem("alreadyLoaded");
+
+    if (!alreadyLoaded) {
+      localStorage.setItem("alreadyLoaded", "true");
+
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+
+      const slowLoadTimer = setTimeout(() => {
+        if (isLoading) {
+          setSlow(true);
+        }
+      }, 5000);
+
+      return () => {
+        clearTimeout(timer);
+        clearTimeout(slowLoadTimer);
+      };
+    } else {
+      setLoading(false);
+    }
+  }, [isLoading]);
+
+  if (isLoading) {
+    return (
+      <div>
+        {isSlow ? (
+          <Loading messagae="This may take a little longer due to your connection speed." />
+        ) : (
+          <Loading messagae="Loading, please wait..." />
+        )}
+      </div>
+    );
+  }
 
   return (
     <QueryClientProvider client={queryClient}>
