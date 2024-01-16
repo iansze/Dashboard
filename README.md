@@ -21,11 +21,25 @@ Dashboard is a full-stack web application designed to streamline business operat
 1. Clone the repository:
    ```bash
    git clone https://github.com/iansze/Dashboard.git
-cd backend
-npm install
 
-Navigate to the backend directory and install dependencies:
-```bash
-Copy code
-cd backend
-npm install
+
+2. Navigate to the backend directory and install dependencies:
+   ```bash
+   cd backend
+   npm install
+
+3. Navigate to the client directory and install dependencies:
+   ```bash
+   cd ../client
+   npm install
+
+4. Running the Application
+   Start the backend server:
+    ```bash
+   cd backend
+   npm start
+
+5. In a new terminal, start the frontend application:
+    ```bash
+   cd ../client
+   npm run dev
