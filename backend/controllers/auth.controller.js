@@ -52,7 +52,7 @@ export const login = async (req, res, next) => {
     );
 
     if (existingUser.rows.length < 0) {
-      return res.status(400).json({ message: "User not exists" });
+      return res.status(401).json({ message: "User not exists" });
     }
 
     const isVaildPassword = await bcrypt.compare(formPassword, existingUser.rows[0][3]);

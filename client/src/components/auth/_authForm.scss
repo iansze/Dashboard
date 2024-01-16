@@ -28,3 +28,29 @@
     }
   }
 }
+
+.error-message {
+  display: flex;
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 1.5rem;
+  padding: 1rem 1rem;
+  border-radius: 2px;
+  border: 1px solid red;
+  background: #eda2a2;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .authForm {
+    width: 80%;
+  }
+  .authContainer__link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+}

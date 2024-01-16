@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux";
 import { setCurrentMember } from "../../redux/feature/memberSlice";
 import { instance, requests } from "../../utils/axios";
 import { Mode, FormValues, SignInResponseData } from "../../types/type";
+import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const AuthForm = ({ mode }: Mode) => {
   const {
@@ -32,14 +34,15 @@ const AuthForm = ({ mode }: Mode) => {
         dispatch(setCurrentMember(data.member));
         navigate("/");
       },
-      onError: () => navigate("/login"),
+      onError: (error: typeof errors) => {
+        console.error("Error during login:", error);
+      },
     },
   };
 
-  const { mutate, isPending } = useMutation(mutationOptions[mode]);
+  const { mutate, isPending, isError } = useMutation(mutationOptions[mode]);
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
-    console.log(data);
     mutate(data);
   };
 
@@ -55,7 +58,7 @@ const AuthForm = ({ mode }: Mode) => {
         minLength={3}
         aria-invalid={errors.username ? "true" : "false"}
       />
-      {errors.username?.type === "required" && <p role="alert">username is required</p>}
+      {errors.username?.type === "required" && <p role="alert">Username is required</p>}
       <input
         {...register("email")}
         id="email"
@@ -66,7 +69,7 @@ const AuthForm = ({ mode }: Mode) => {
         minLength={3}
         aria-invalid={errors.email ? "true" : "false"}
       />
-      {errors.email?.type === "required" && <p role="alert">username is required</p>}
+      {errors.email?.type === "required" && <p role="alert">Email is required</p>}
       <input
         {...register("password")}
         id="password"
@@ -77,7 +80,7 @@ const AuthForm = ({ mode }: Mode) => {
         minLength={3}
         aria-invalid={errors.password ? "true" : "false"}
       />
-      {errors.password?.type === "required" && <p role="alert">username is required</p>}
+      {errors.password?.type === "required" && <p role="alert">Password is required</p>}
       <button
         type="submit"
         disabled={isPending}
@@ -85,6 +88,12 @@ const AuthForm = ({ mode }: Mode) => {
       >
         {isPending ? "Loading..." : "Submit"}
       </button>
+      {isError && (
+        <p className="error-message">
+          <FontAwesomeIcon icon={faCircleExclamation} style={{ color: "red" }} size="lg" />
+          Invalid username or password
+        </p>
+      )}
     </form>
   );
 };

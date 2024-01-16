@@ -10,11 +10,16 @@
     margin: 3rem;
   }
   &__link {
+    display: flex;
     font-size: 1.2rem;
     font-weight: 600;
     margin: 3rem;
     color: white;
     text-decoration: none;
+
+    &-title {
+      padding-right: 0.5rem;
+    }
     &-text {
       margin-left: 0.5rem;
       color: red;

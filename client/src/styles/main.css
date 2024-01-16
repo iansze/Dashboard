@@ -254,6 +254,31 @@ a {
   color: white;
 }
 
+.error-message {
+  display: flex;
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 1.5rem;
+  padding: 1rem 1rem;
+  border-radius: 2px;
+  border: 1px solid red;
+  background: #eda2a2;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .authForm {
+    width: 80%;
+  }
+  .authContainer__link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+}
 .authContainer {
   display: flex;
   flex-direction: column;
@@ -267,11 +292,15 @@ a {
   margin: 3rem;
 }
 .authContainer__link {
+  display: flex;
   font-size: 1.2rem;
   font-weight: 600;
   margin: 3rem;
   color: white;
   text-decoration: none;
+}
+.authContainer__link-title {
+  padding-right: 0.5rem;
 }
 .authContainer__link-text {
   margin-left: 0.5rem;

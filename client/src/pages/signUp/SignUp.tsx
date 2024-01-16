@@ -7,12 +7,12 @@ const SignUp = () => {
       <div className="authContainer">
         <h1 className="authContainer__title">Sign Up</h1>
         <AuthForm mode="signUp" />
-        <p className="authContainer__link">
-          Already have an account?{" "}
+        <div className="authContainer__link">
+          <p className="authContainer__link-title">Don't have an account?</p>
           <Link to="/login" className="authContainer__link-text">
             Login Now!
           </Link>
-        </p>
+        </div>
       </div>
     </>
   );
