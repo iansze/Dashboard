@@ -25,7 +25,7 @@ const Home = () => {
 
   useEffect(() => {
     if (data) {
-      const eventObj = data.data.map((event: CalendarEventFromDB) => ({
+      const eventObj = data?.data.map((event: CalendarEventFromDB) => ({
         id: event.id,
         title: event.title,
         start: event.start_date,
