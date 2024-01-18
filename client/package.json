@@ -8,7 +8,8 @@
     "build": "tsc && vite build --mode production",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "scss": "sass --watch src/styles:src"
+    "scss": "sass --watch src/styles:src",
+    "test": "vitest"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
@@ -29,6 +30,7 @@
     "@nivo/pie": "^0.84.0",
     "@reduxjs/toolkit": "^2.0.1",
     "@tanstack/react-query": "^5.17.1",
+    "@testing-library/jest-dom": "^6.2.0",
     "axios": "^1.6.3",
     "backend": "file:../backend",
     "react": "^18.2.0",
@@ -41,6 +43,8 @@
     "sass": "^1.69.6"
   },
   "devDependencies": {
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.2",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
@@ -49,7 +53,9 @@
     "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "jsdom": "^23.2.0",
     "typescript": "^5.2.2",
-    "vite": "^5.0.8"
+    "vite": "^5.0.8",
+    "vitest": "^1.2.1"
   }
 }
