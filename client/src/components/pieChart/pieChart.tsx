@@ -111,15 +111,15 @@ const PieChart = ({ isDashBoard }: PieChartProps) => {
                 anchor: "bottom",
                 direction: "row",
                 justify: false,
-                translateX: 0,
+                translateX: 20,
                 translateY: 56,
                 itemsSpacing: 0,
-                itemWidth: 100,
+                itemWidth: 80,
                 itemHeight: 18,
                 itemTextColor: "#999",
                 itemDirection: "left-to-right",
                 itemOpacity: 1,
-                symbolSize: 18,
+                symbolSize: 12,
                 symbolShape: "circle",
                 effects: [
                   {
